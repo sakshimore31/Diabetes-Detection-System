@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <title>Diabetes Detection | Register</title>
+</head>
+<body>
+    <div class="wrapper">
+        <nav class="nav">
+            <div class="nav-logo">
+            </div>
+            <div class="nav-menu">
+                <ul>
+                    <li><a href="{% url 'home' %}" class="link">Home</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <div class="form-box">
+            <div class="register-container">
+                <div class="top">
+                    <header>Sign Up</header>
+                </div>
+                <form id="register-form" method="POST">
+                    {% csrf_token %}
+                    <div class="two-forms">
+                        <div class="input-box">
+                            <input type="text" class="input-field" name="first_name" placeholder="Firstname" required>
+                            <i class="bx bx-user"></i>
+                        </div>
+                        <div class="input-box">
+                            <input type="text" class="input-field" name="last_name" placeholder="Lastname" required>
+                            <i class="bx bx-user"></i>
+                        </div>
+                    </div>
+                    <div class="input-box">
+                        <input type="text" class="input-field" name="username" placeholder="Username" required>
+                        <i class="bx bx-user"></i>
+                    </div>
+                    <div class="input-box">
+                        <input type="email" class="input-field" name="email" placeholder="Email" required>
+                        <i class="bx bx-envelope"></i>
+                    </div>
+                    <div class="input-box">
+                        <input type="password" class="input-field" name="password1" placeholder="Password" required>
+                        <i class="bx bx-lock-alt"></i>
+                    </div>
+                    <div class="input-box">
+                        <input type="password" class="input-field" name="password2" placeholder="Confirm Password" required>
+                        <i class="bx bx-lock-alt"></i>
+                    </div>
+                    
+                    <div class="input-box">
+                        <input type="submit" class="submit" value="Register">
+                    </div>
+
+                    <div class="two-col">
+                        <div class="one">
+                            <input type="checkbox" id="register-check" name="agree_terms" required>
+                            <label for="register-check"> I agree to the terms</label>
+                        </div>
+                        <div class="two">
+                            <label><a href="#">Terms & conditions</a></label>
+                        </div>
+                    </div>
+                    <p>Already have an account? <a href="{% url 'login' %}">Login</a></p>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    {% if form.errors %}
+        {% for field in form %}
+            {%for error in field.errors%}
+                <div class="alert alert-danger">{{error|escape}}</div>
+            {% endfor %}
+        {% endfor %}
+        {%for error in form.non_field_errors%}
+            <div class="alert alert-danger">{{error|escape}}</div>
+        {% endfor %}
+    {% endif %}
+
+ 
+
+    
+</body>
+</html>

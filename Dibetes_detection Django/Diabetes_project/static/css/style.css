@@ -1,0 +1,458 @@
+General Styles
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    background-image: url("../images/medics.jpeg");
+
+    background-size: cover; 
+    background-repeat: no-repeat; 
+    background-position: center; 
+
+}
+
+/* Wrapper */
+.wrapper {
+    width: 100%;
+    margin: 0 auto;  /* Center the wrapper */
+    padding: 0;  /* Remove padding to make nav full-width */
+}
+
+/* Navigation Bar */
+.nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 35px;  /* Increased padding for a larger navbar */
+    background-color: #333;
+    color: #fff;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.nav-logo a {
+    font-size: 24px;  /* Increased font size for the logo */
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;  /* Makes the logo stand out */
+}
+
+.nav-menu {
+    display: flex;
+}
+
+.nav-menu ul {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.nav-menu ul li {
+    margin-right: 30px;  /* Increased margin between navigation items */
+}
+
+.nav-menu ul li a {
+    color: #fff;
+    text-decoration: none;
+    padding: 10px 15px;  /* Increased padding for larger clickable area */
+    font-size: 18px;  /* Increased font size for better readability */
+}
+
+.nav-menu ul li a:hover {
+    background-color: #444;  /* Adds a hover effect with background change */
+    border-radius: 4px;  /* Rounded corners for hover effect */
+}
+
+/* Home Page - Jumbotron */
+.jumbotron {
+    background-color: #00c3ff;
+    color: white;
+    padding: 50px;
+    border-radius: 8px;
+    margin-top: 30px;  /* Added margin-top for spacing */
+    text-align: center;
+}
+
+.jumbotron h1 {
+    font-size: 36px;
+    margin-bottom: 15px;
+}
+
+.jumbotron p {
+    font-size: 18px;
+    margin-bottom: 30px;
+}
+
+.jumbotron .btn {
+    font-size: 18px;
+    padding: 10px 20px;
+    color: white;
+    background-color: #100404fb;
+    border: none;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+.jumbotron .btn:hover {
+    background-color: #003d7a;
+}
+
+/* Home Page - Features Section */
+.features {
+    margin-top: 40px;
+}
+
+.feature-box {
+    background-color: white;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.feature-box i {
+    font-size: 40px;
+    color: #007bff;
+    margin-bottom: 10px;
+}
+
+.feature-box h3 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.feature-box p {
+    font-size: 16px;
+    color: #555;
+}
+
+/* Register and Login Forms */
+/* Form Container */
+.form-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+    padding: 60x;
+    background-color: rgba(255, 255, 255, 0.9); /* Slight transparency */
+    border-radius: 12px; /* Softer rounded corners */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Deeper shadow for a lifting effect */
+    max-width: 400px; /* Fixed width for the form box */
+    margin: auto; /* Center the form box */
+    transition: transform 0.3s ease; /* Smooth transition effect */
+}
+
+.form-box:hover {
+    transform: scale(1.02); /* Slight zoom effect on hover */
+}
+
+/* Input Field Container */
+.input-box {
+    position: relative;
+    margin-bottom: 25px; /* Increased bottom margin for better spacing */
+    width: 100%; /* Ensure full width of input fields */
+}
+
+/* Input Fields */
+.input-field {
+    width: 100%;
+    padding: 12px 15px; /* Increased padding for a more comfortable input field */
+    font-size: 16px;
+    border: 2px solid #ddd; /* Light border for input fields */
+    border-radius: 4px; /* Rounded corners for input fields */
+    outline: none;
+    background-color: #f9f9f9; /* Light grey background for better contrast */
+    transition: border-color 0.3s ease; /* Smooth transition for border color */
+}
+
+.input-field:focus {
+    border-color: #007bff; /* Change border color on focus */
+}
+
+/* Icon in Input Fields */
+.input-box i {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #777; /* Neutral color for icons */
+}
+
+/* Submit Button */
+.submit {
+    width: 100%;
+    padding: 12px 0; /* Vertical padding for a taller button */
+    background-color: #007bff; /* Primary color for submit button */
+    color: white;
+    border: none;
+    border-radius: 25px; /* Full rounded button */
+    cursor: pointer;
+    font-size: 16px; /* Increased font size for button text */
+    font-weight: bold; /* Bold text for better visibility */
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth transition effects */
+}
+
+.submit:hover {
+    background-color: #0056b3; /* Darker shade on hover */
+    transform: translateY(-3px); /* Slight lift effect on hover */
+}
+
+/* Two Column Section for Options and Links */
+.two-col {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 15px; /* Increased top margin for spacing */
+}
+
+.two-col label a {
+    color: #007bff; /* Primary color for links */
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.two-col label a:hover {
+    text-decoration: underline; /* Underline on hover for links */
+}
+
+.two-col input[type="checkbox"] {
+    margin-right: 5px;
+}
+
+/* Responsive Design */
+@media (max-width: 576px) {
+    .form-box {
+        width: 90%; /* Reduced width on smaller screens */
+        padding: 15px; /* Adjusted padding for smaller screens */
+    }
+}
+
+
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    background-image: url("../images/medics.jpeg");
+    background-size: cover; 
+    background-repeat: no-repeat; 
+    background-position: center; 
+}
+
+/* Wrapper */
+.wrapper {
+    width: 100%;
+    margin: 0 auto;  /* Center the wrapper */
+    padding: 0;  /* Remove padding to make nav full-width */
+}
+
+/* Navigation Bar */
+.nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 35px;  /* Increased padding for a larger navbar */
+    background-color: #333;
+    color: #fff;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.nav-logo a {
+    font-size: 24px;  /* Increased font size for the logo */
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;  /* Makes the logo stand out */
+}
+
+.nav-menu {
+    display: flex;
+}
+
+.nav-menu ul {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.nav-menu ul li {
+    margin-right: 30px;  /* Increased margin between navigation items */
+}
+
+.nav-menu ul li a {
+    color: #fff;
+    text-decoration: none;
+    padding: 10px 15px;  /* Increased padding for larger clickable area */
+    font-size: 18px;  /* Increased font size for better readability */
+}
+
+.nav-menu ul li a:hover {
+    background-color: #444;  /* Adds a hover effect with background change */
+    border-radius: 4px;  /* Rounded corners for hover effect */
+}
+
+/* Home Page - Jumbotron */
+.jumbotron {
+    background-color: #00c3ff;
+    color: white;
+    padding: 50px;
+    border-radius: 8px;
+    margin-top: 30px;  /* Added margin-top for spacing */
+    text-align: center;
+}
+
+.jumbotron h1 {
+    font-size: 36px;
+    margin-bottom: 15px;
+}
+
+.jumbotron p {
+    font-size: 18px;
+    margin-bottom: 30px;
+}
+
+.jumbotron .btn {
+    font-size: 18px;
+    padding: 10px 20px;
+    color: white;
+    background-color: #100404fb;
+    border: none;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+.jumbotron .btn:hover {
+    background-color: #003d7a;
+}
+
+/* Home Page - Features Section */
+.features {
+    margin-top: 40px;
+}
+
+.feature-box {
+    background-color: white;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.feature-box i {
+    font-size: 40px;
+    color: #007bff;
+    margin-bottom: 10px;
+}
+
+.feature-box h3 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.feature-box p {
+    font-size: 16px;
+    color: #555;
+}
+
+/* Login Form Styling */
+.login-form .form-box {
+    background-color: rgba(255, 255, 255, 0.9); /* Slight transparency */
+    border-radius: 8px; /* Softer rounded corners */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Deeper shadow for a lifting effect */
+    max-width: 350px; /* Fixed width for the login form box */
+}
+
+.login-form .submit {
+    background-color: #28a745; /* Green color for submit button */
+}
+
+.login-form .submit:hover {
+    background-color: #218838; /* Darker green on hover */
+}
+
+/* Registration Form Styling */
+.registration-form .form-box {
+    background-color: rgba(255, 255, 255, 0.9); /* Slight transparency */
+    border-radius: 12px; /* Softer rounded corners */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Deeper shadow for a lifting effect */
+    max-width: 400px; /* Fixed width for the registration form box */
+}
+
+.registration-form .submit {
+    background-color: #007bff; /* Blue color for submit button */
+}
+
+.registration-form .submit:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
+
+/* Input Fields */
+.input-box {
+    position: relative;
+    margin-bottom: 25px; /* Increased bottom margin for better spacing */
+    width: 100%; /* Ensure full width of input fields */
+}
+
+.input-field {
+    width: 100%;
+    padding: 12px 15px; /* Increased padding for a more comfortable input field */
+    font-size: 16px;
+    border: 2px solid #ddd; /* Light border for input fields */
+    border-radius: 4px; /* Rounded corners for input fields */
+    outline: none;
+    background-color: #f9f9f9; /* Light grey background for better contrast */
+    transition: border-color 0.3s ease; /* Smooth transition for border color */
+}
+
+.input-field:focus {
+    border-color: #007bff; /* Change border color on focus */
+}
+
+/* Icon in Input Fields */
+.input-box i {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #777; /* Neutral color for icons */
+}
+
+/* Two Column Section for Options and Links */
+.two-col {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 15px; /* Increased top margin for spacing */
+}
+
+.two-col label a {
+    color: #007bff; /* Primary color for links */
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.two-col label a:hover {
+    text-decoration: underline; /* Underline on hover for links */
+}
+
+.two-col input[type="checkbox"] {
+    margin-right: 5px;
+}
+
+/* Responsive Design */
+@media (max-width: 576px) {
+    .form-box {
+        width: 90%; /* Reduced width on smaller screens */
+        padding: 15px; /* Adjusted padding for smaller screens */
+    }
+}

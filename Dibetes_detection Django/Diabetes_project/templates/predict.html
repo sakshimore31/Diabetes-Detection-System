@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <title>Diabetes Detection | Prediction</title>
+
+    <style>
+        /* Dashboard CSS */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            background-image: url("{% static 'images/medics.jpeg' %}");
+            background-size: cover; 
+            background-repeat: no-repeat; 
+            background-position: center; 
+        }
+
+        .wrapper {
+            width: 100%;
+            max-width: 1200px;
+            margin: auto;
+            padding: 0; /* Padding removed to use full width */
+        }
+
+        /* Navigation Bar */
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px; /* Increased padding for larger navbar */
+            background-color: #333;
+            color: #fff;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .nav-logo a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 24px; /* Increased font size for logo */
+            font-weight: bold; /* Bold font for logo */
+        }
+
+        .nav-menu {
+            display: flex;
+        }
+
+        .nav-menu ul {
+            display: flex;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .nav-menu ul li {
+            margin-right: 20px; /* Space between nav items */
+        }
+
+        .nav-menu ul li a {
+            color: #fff;
+            text-decoration: none;
+            padding: 10px 15px; /* Increased padding for better click area */
+            font-size: 18px; /* Increased font size for nav links */
+        }
+
+        .nav-menu ul li a:hover, .nav-menu ul li a.active {
+            color: #f4f4f4;
+            background-color: #444; /* Hover background color */
+            border-radius: 4px; /* Rounded corners on hover */
+        }
+
+        /* Dashboard Content */
+        .dashboard-container {
+            margin-top: 20px;
+        }
+
+        .card {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+            overflow: hidden;
+        }
+
+        .card-header {
+            background-color: #333;
+            color: white;
+            padding: 15px;
+        }
+
+        .card-body {
+            padding: 15px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        .btn-primary {
+            background-color: #333;
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .btn-primary:hover {
+            background-color: #555;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <nav class="nav">
+            <div class="nav-logo">
+                <a href="{% url 'home' %}">Diabetes Detection</a>
+            </div>
+            <div class="nav-menu">
+                <ul>
+                    <li><a href="{% url 'display_csv' %}" class="link active">Datasets</a></li>
+                    <li><a href="{% url 'logout' %}" class="link active">Log Out</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <!-- Dashboard Content -->
+        <div class="dashboard-container">
+            <div class="row">
+                <!-- User Information Card -->
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-header">
+                            <h4>User Information</h4>
+                        </div>
+                        <div class="card-body">
+                            <p><strong>Username:</strong> {{ user.username }}</p>
+                            <p><strong>Email:</strong> {{ user.email }}</p>
+                            <!-- Additional user information can be added here -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Prediction Input Form -->
+                <div class="col-md-8">
+                    <div class="card">
+                        <div class="card-header">
+                            <h4>Diabetes Prediction</h4>
+                        </div> 
+                        <div class="card-body">
+                            <form id="prediction-form" method="POST" action='/result/'>
+                                {% csrf_token %}
+                                <div class="form-group">
+                                    <label for="glucose">Glucose Level:</label>
+                                    <input type="number" class="form-control" id="glucose" name="glucose" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="bloodPressure">Blood Pressure:</label>
+                                    <input type="number" class="form-control" id="bloodPressure" name="bloodPressure" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="skinThickness">Skin Thickness:</label>
+                                    <input type="number" class="form-control" id="skinThickness" name="skinThickness" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="insulin">Insulin Level:</label>
+                                    <input type="number" class="form-control" id="insulin" name="insulin" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="bmi">BMI:</label>
+                                    <input type="number" step="0.1" class="form-control" id="bmi" name="bmi" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="diabetesPedigreeFunction">Diabetes Pedigree Function:</label>
+                                    <input type="number" class="form-control" id="diabetesPedigreeFunction" name="diabetesPedigreeFunction" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="age">Age:</label>
+                                    <input type="number" class="form-control" id="age" name="age" required>
+                                </div>
+                                <button type="submit" class="btn btn-primary">Predict</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+</body>
+</html>

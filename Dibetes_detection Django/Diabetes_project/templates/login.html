@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <title>Diabetes Detection | Login</title>
+</head>
+<body>
+    <div class="wrapper">
+        <nav class="nav">
+            <div class="nav-logo">
+            </div>
+            <div class="nav-menu">
+                <ul>
+                    <li><a href="{% url 'home' %}" class="link">Home</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <div class="form-box">
+            <div class="login-container">
+                <div class="top">
+                    <header>Login</header>
+                </div>
+                <form id="login-form" method="POST">
+                    {% csrf_token %}
+                    <div class="input-box">
+                        <input type="text" class="input-field" name="username" placeholder="Username" required>
+                        <i class="bx bx-user"></i>
+                    </div>
+                    <div class="input-box">
+                        <input type="password" class="input-field" name="password" placeholder="Password" required>
+                        <i class="bx bx-lock-alt"></i>
+                    </div>
+                    <div class="input-box">
+                        <input type="submit" class="submit" value="Sign In">
+                    </div>
+                    <div class="two-col">
+                        <div class="one">
+                            <input type="checkbox" id="login-check" name="remember_me">
+                            <label for="login-check"> Remember Me</label>
+                        </div>
+                        <div class="two">
+                            <label><a href="#">Forgot password?</a></label>
+                        </div>
+                    </div>
+                    <p>Don't have an account? <a href="{% url 'register' %}">Sign Up</a></p>
+                </form>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

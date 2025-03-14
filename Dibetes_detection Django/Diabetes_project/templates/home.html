@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <title>Diabetes Detection System | Home</title>
+</head>
+<body>
+    <!-- Navigation outside the wrapper to span full width -->
+    <nav class="nav">
+        <div class="nav-logo">
+            <!-- Logo or site name here -->
+            <a href="{% url 'home' %}">Diabetes Detection System</a>
+        </div>
+        <div class="nav-menu">
+            <ul>
+                <li><a href="{% url 'home' %}" class="link Active">Home</a></li>
+                <li><a href="{% url 'register' %}" class="link Active">Register</a></li>
+                <li><a href="{% url 'login' %}" class="link Active">Login</a></li>
+                
+                <!-- Add more navigation items if needed -->
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Wrapper for main content -->
+    <div class="wrapper">
+        <div class="content">
+            <div class="container mt-5">
+                <div class="jumbotron text-center">
+                    <h1>Welcome to the Diabetes Detection System</h1>
+                    <p>Our system provides a reliable and efficient way to detect diabetes using advanced machine learning algorithms.</p>
+                    <a href="{% url 'login' %}" class="btn btn-primary btn-lg">Get Started</a>
+                </div>
+
+                <div class="features mt-5">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="feature-box">
+                                <i class="bx bx-check-shield"></i>
+                                <h3>Accurate Predictions</h3>
+                                <p>Utilizing the latest algorithms, our system provides accurate diabetes predictions based on user data.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="feature-box">
+                                <i class="bx bx-time-five"></i>
+                                <h3>Quick and Easy</h3>
+                                <p>Register, input your details, and get results in minutes. Our system is designed for ease of use.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="feature-box">
+                                <i class="bx bx-support"></i>
+                                <h3>24/7 Support</h3>
+                                <p>Our team is available around the clock to assist you with any questions or concerns.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

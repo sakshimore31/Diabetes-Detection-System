@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <title>Diabetes Detection | Results</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            background-image: url("{% static 'images/medics.jpeg' %}");
+            background-size: cover; 
+            background-repeat: no-repeat; 
+            background-position: center; 
+        }
+
+        .wrapper {
+            width: 100%;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            background-color: #333;
+            color: #fff;
+        }
+
+        .nav-logo a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .card {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+        }
+
+        .card-header {
+            background-color: #333;
+            color: white;
+            padding: 15px;
+        }
+
+        .card-body {
+            padding: 15px;
+        }
+
+        .positive-result {
+            color: red;
+        }
+
+        .negative-result {
+            color: green;
+        }
+
+        .suggestion-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .suggestion-list li {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <nav class="nav">
+            <div class="nav-logo">
+                <a href="{% url 'home' %}">Diabetes Detection</a>
+            </div>
+        </nav>
+
+        <div class="card">
+            <div class="card-header">
+                <h4>Prediction Results</h4>
+            </div>
+            <div class="card-body">
+                <p class="{% if ans == 'Positive' %}positive-result{% else %}negative-result{% endif %}">
+                    Your predicted diabetes status is: <strong>{{ ans }}</strong>
+                </p>
+                {% if ans == "Positive" %}
+                <p>It is important to manage your diabetes. Here are some recommendations:</p>
+                <ul class="suggestion-list">
+                    <li>1. Follow a healthy diet with low sugar and carbs.</li>
+                    <li>2. Exercise regularly to maintain blood sugar levels.</li>
+                    <li>3. Monitor your blood sugar regularly.</li>
+                    <li>4. Consult a doctor if needed.</li>
+                </ul>
+                <p>Doctors to consult:</p>
+                <ul class="suggestion-list">
+                    <li><strong>Dr. Smith</strong> - Endocrinologist</li>
+                    <li><strong>Dr. Johnson</strong> - Diabetes Specialist</li>
+                </ul>
+                {% else %}
+                <p>While your result is negative, it's essential to maintain a healthy lifestyle to prevent diabetes in the future. Here are some tips:</p>
+                <ul class="suggestion-list">
+                    <li>1. Eat a balanced diet with plenty of vegetables and fiber.</li>
+                    <li>2. Exercise at least 30 minutes a day.</li>
+                    <li>3. Avoid sugary drinks and processed foods.</li>
+                    <li>4. Maintain a healthy weight.</li>
+                </ul>
+                {% endif %}
+            </div>
+        </div>
+        
+</body>
+</html>
